@@ -1,3 +1,46 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.google.com/specimen/Kumbh+Sans');
+html {
+  font-size: 100%;
+}
+
+:root {
+  /* orange - primary color  */
+  --orange: hsl(26, 100%, 55%);
+  --pale-orange: hsl(25, 100%, 94%);
+  /* blue - neutral color */
+  --dark-blue: hsl(220, 13%, 13%);
+  --dark-grayish-blue: hsl(219, 9%, 45%);
+  --grayish-blue: hsl(220, 14%, 75%);
+  --light-grayish-blue: hsl(223, 64%, 98%);
+  /* other colors */
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --lightbox-black: hsl(0, 0%, 75%);
+  /* weight */
+  --weight-400: 400;
+  --weight-700: 700;
+
+  /* fonts  */
+  --headingFont: 'Kumbh Sans', sans-serif;
+  --bodyFont: 'Nunito', sans-serif;
+  --smallText: 0.7em;
+
+  /* rest of the vars */
+  --backgroundColor: var(--grey-50);
+  --textColor: var(--grey-900);
+  --borderRadius: 0.25rem;
+  --letterSpacing: 1px;
+  --transition: 0.3s ease-in-out all;
+  --max-width: 1120px;
+  --fixed-width: 600px;
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
