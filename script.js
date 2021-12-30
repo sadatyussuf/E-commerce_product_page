@@ -9,8 +9,28 @@ throw Error(
 
 const menuBar = getElement('.menu-img')
 const closeBar = getElement('.close-img')
-
 const navLinks = getElement('.nav-links')
+const prevImg = getElement('.prev')
+const nextImg = getElement('.next')
+const heroBackgroundImg = getElement('.hero')
+
+
+
+prevImg.addEventListener('click',()=>{
+    // alert('The prev image')
+    heroBackgroundImg.style.backgroundImage= 'url(./images/image-product-2.jpg)'
+    // heroBackgroundSize.style.backgroundImage = 'cover'
+})
+
+nextImg.addEventListener('click',()=>{
+    heroBackgroundImg.style.backgroundImage = 'url(./images/image-product-1.jpg)'
+})
+
+
+
+
+
+
 
 menuBar.addEventListener('click',() =>{
     // alert('added')
