@@ -7,6 +7,7 @@ throw Error(
 )
 }
 
+
 //  constants
 const menuBar = getElement('.menu-img')
 const closeBar = getElement('.close-img')
@@ -48,43 +49,27 @@ const getNextOrPrevImage = (inequalitiesSymbols) => {
         let count = getIndex-1
         return imageList[count]
     }
-    // return imageList[count]
-    // const getImage = imageList[count]
 }
+
 
 prevImg.addEventListener('click',()=>{
     const getImage = getNextOrPrevImage('<')
     heroBackgroundImg.style.backgroundImage = `url(./images/${getImage})`
-    
 })
+
 
 nextImg.addEventListener('click',()=>{
-    // const getName = getBackgroundImage()
-    // let getIndex = imageList.indexOf(getName)
-    // if (getIndex >= lengthOfImageList){
-    //     getIndex = -1
-    // }
-    // let count = getIndex+1
-    // const getImage = imageList[count]
-    // console.log(getImage)
     const getImage = getNextOrPrevImage('>')
     heroBackgroundImg.style.backgroundImage = `url(./images/${getImage})`
-    
 })
-
-// console.log(heroBackgroundImg)
-// const div = document.querySelector('div')  
-// getBackgroundImage()
-
-
 
 
 menuBar.addEventListener('click',() =>{
-    // alert('added')
     navLinks.classList.add('show-links')
     document.body.style.background = 'rgba(0, 0, 0, 0.8)'
-    
 })
+
+
 closeBar.addEventListener('click',() =>{
     navLinks.classList.remove('show-links')
     document.body.style.background = 'rgba(0, 0, 0, 0)'

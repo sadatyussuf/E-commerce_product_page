@@ -122,9 +122,9 @@ Navbar
   margin-left: 0.9rem;
   font-size: 1.1rem;
   font-weight: var(--weight-700);
-  /* ! Todos: transition */
+  /* ! Todo: transition */
 }
-/* ! Todos: Media Queries */
+/* ! Todo: Media Queries */
 
 /*
 =============== 
@@ -182,7 +182,7 @@ Main
   height: 0;
   overflow: hidden;
 }
-/* ! Todos : Media Queries */
+/* ! Todo : Media Queries */
 /*
 =============== 
 Navbar
