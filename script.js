@@ -15,6 +15,7 @@ const navLinks = getElement('.nav-links')
 const prevImg = getElement('.prev')
 const nextImg = getElement('.next')
 const heroBackgroundImg = getElement('.hero')
+const heroImageOverlay = getElement('.hero-container')
 
 const imageList = ['image-product-1.jpg','image-product-2.jpg','image-product-3.jpg','image-product-4.jpg']
 const lengthOfImageList =imageList.length -1
@@ -66,11 +67,15 @@ nextImg.addEventListener('click',()=>{
 
 menuBar.addEventListener('click',() =>{
     navLinks.classList.add('show-links')
-    document.body.style.background = 'rgba(0, 0, 0, 0.8)'
+    document.body.style.background = 'rgba(0, 0, 0, 0.85)'
+    heroImageOverlay.style.backgroundColor =' rgba(0, 0, 0, 0.85)'
+    document.body.style.position = 'fixed'
 })
 
 
 closeBar.addEventListener('click',() =>{
     navLinks.classList.remove('show-links')
     document.body.style.background = 'rgba(0, 0, 0, 0)'
+    heroImageOverlay.style.backgroundColor =' rgba(0, 0, 0, 0)'
+    document.body.style.position = 'static'
 })
