@@ -16,6 +16,11 @@ const prevImg = getElement('.prev')
 const nextImg = getElement('.next')
 const heroBackgroundImg = getElement('.hero')
 const heroImageOverlay = getElement('.hero-container')
+const plusIcon = getElement('.plus-icon')
+const minusIcon = getElement('.minus-icon')
+const digitTag = getElement('.digit')
+const coverOverlay = getElement('.cover-body')
+
 
 const imageList = ['image-product-1.jpg','image-product-2.jpg','image-product-3.jpg','image-product-4.jpg']
 const lengthOfImageList =imageList.length -1
@@ -38,7 +43,7 @@ const getNextOrPrevImage = (inequalitiesSymbols) => {
     let getIndex = imageList.indexOf(getName)
     if (inequalitiesSymbols == '>'){
         if (getIndex >= lengthOfImageList){
-        getIndex = -1
+            getIndex = -1
         }
         let count = getIndex+1
         return imageList[count]
@@ -51,6 +56,21 @@ const getNextOrPrevImage = (inequalitiesSymbols) => {
         return imageList[count]
     }
 }
+
+
+plusIcon.addEventListener('click',() =>{
+    const getValue =parseInt(digitTag.innerHTML)
+    const count = getValue + 1
+    digitTag.innerHTML = count
+})
+
+
+minusIcon.addEventListener('click',() =>{
+    const getValue =parseInt(digitTag.innerHTML)
+    const count = getValue - 1
+    if (count < 0) count = 0
+    digitTag.innerHTML = count
+})
 
 
 prevImg.addEventListener('click',()=>{
@@ -67,15 +87,13 @@ nextImg.addEventListener('click',()=>{
 
 menuBar.addEventListener('click',() =>{
     navLinks.classList.add('show-links')
-    document.body.style.background = 'rgba(0, 0, 0, 0.85)'
-    heroImageOverlay.style.backgroundColor =' rgba(0, 0, 0, 0.85)'
+    coverOverlay.classList.add('cover-overlay')
     document.body.style.position = 'fixed'
 })
 
 
 closeBar.addEventListener('click',() =>{
     navLinks.classList.remove('show-links')
-    document.body.style.background = 'rgba(0, 0, 0, 0)'
-    heroImageOverlay.style.backgroundColor =' rgba(0, 0, 0, 0)'
+    coverOverlay.classList.remove('cover-overlay')
     document.body.style.position = 'static'
 })
