@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <script src="https://kit.fontawesome.com/620a9a6ec8.js" crossorigin="anonymous"></script>
   
   <title>Frontend Mentor | E-commerce product page</title>
   <link rel="stylesheet" href="style.css">
@@ -23,7 +24,8 @@
             <img src="./images/logo.svg" alt=" sneakers logo">
           </a>
           <div class="right-logo">
-            <img src="./images/icon-cart.svg" alt="cart image">
+            <p class="cartNumber">0</p>
+            <img src="./images/icon-cart.svg" alt="cart image" class="cart-icon">
             <!-- <div class="cart-box">
               <h3>cart</h3>
               <hr>
@@ -63,7 +65,19 @@
           <h3>cart</h3>
           <!-- <hr> -->
           <p class="cart-empty">Your cart is empty.</p>
-          <div class="cart-info"></div>
+          <div class="cart-info">
+            <div class="info-price">
+              <img src="./images/image-product-1-thumbnail.jpg" alt="product 1 thumbnail" class="setThumbnail">
+              <div class="info-row">
+                <p>Autumn Limited Edition...</p>
+                <p>$125.00 x <span class="setDigit">3</span> <span class="cart-totalPrice">$375.00</span> </p>
+              </div>
+              
+              <a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
+              <!-- <img src="./images/icon-cart.svg" alt=""> -->
+            </div>
+            <a href="#" class="cart-checkout">Checkout</a>
+          </div>
         </div>
           <div class="hero-container">
             <div class="hero-icons">

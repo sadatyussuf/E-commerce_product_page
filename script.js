@@ -20,9 +20,30 @@ const plusIcon = getElement('.plus-icon')
 const minusIcon = getElement('.minus-icon')
 const digitTag = getElement('.digit')
 const coverOverlay = getElement('.cover-body')
+const cartIcon = getElement('.cart-icon')
+const cartBox = getElement('.cart-box')
+const addCart = getElement('.addCart')
+const setThumbnail = getElement('.setThumbnail')
+const setDigit = getElement('.setDigit')
+const setTotalPrice = getElement('.cart-totalPrice')
+const cartNumber = getElement('.cartNumber')
+const cartEmpty = getElement('.cart-empty')
+const cartInfo = getElement('.cart-info')
+const trashIcon = getElement('.fa-trash')
 
+trashIcon.addEventListener('click',() =>{
+    cartNumber.innerHTML = 0
+    cartNumber.style.visibility = 'hidden'
+    
+    cartInfo.classList.add('hide-element')
+    cartEmpty.classList.remove('hide-element')
+    // cartNumber.classList.
+})
 
 const imageList = ['image-product-1.jpg','image-product-2.jpg','image-product-3.jpg','image-product-4.jpg']
+
+const thumbnailList = ['image-product-1-thumbnail.jpg','image-product-2-thumbnail.jpg','image-product-3-thumbnail.jpg','image-product-4-thumbnail.jpg']
+
 const lengthOfImageList =imageList.length -1
 
 
@@ -56,6 +77,42 @@ const getNextOrPrevImage = (inequalitiesSymbols) => {
         return imageList[count]
     }
 }
+
+addCart.addEventListener('click',()=>{
+    const getValue = digitTag.innerHTML
+    if (parseInt(getValue)){
+        cartEmpty.classList.add('hide-element')
+        cartInfo.classList.remove('hide-element')
+        
+    const getImageName = getBackgroundImage()
+    let getIndex = imageList.indexOf(getImageName)
+    const getThumbnail = thumbnailList[getIndex]
+    setThumbnail.src = `./images/${getThumbnail}`
+    setDigit.innerHTML = getValue
+    let calcTotalPrice = 125 * parseInt(getValue)
+    setTotalPrice.innerHTML = `$${calcTotalPrice}.00`
+    digitTag.innerHTML = 0
+
+    cartNumber.style.visibility = 'visible'
+    cartNumber.innerHTML = getValue
+
+    }
+    
+})
+
+cartIcon.addEventListener('click',()=>{
+    cartBox.classList.toggle('show-cartBox')
+    // cartNumber.style.visibility = 'hidden'
+    const getValue = cartNumber.innerHTML
+    // alert(getValue)
+    // if (parseInt(getValue)){
+        // }
+        if (parseInt(getValue)==0){
+            cartInfo.classList.add('hide-element')
+            cartEmpty.classList.remove('hide-element')
+    }
+    // const cartInfo 
+})
 
 
 plusIcon.addEventListener('click',() =>{
