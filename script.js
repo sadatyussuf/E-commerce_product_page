@@ -31,6 +31,19 @@ const cartEmpty = getElement('.cart-empty')
 const cartInfo = getElement('.cart-info')
 const trashIcon = getElement('.fa-trash')
 const allThumbs = document.querySelectorAll('.thumb-img')
+const sliderNext = getElement('.sliderNext')
+const sliderPrev = getElement('.sliderPrev')
+const sliderHero = getElement('.heroSlider')
+const sliderFull_screen = getElement('.full_screenSlider')
+const sliderClose = getElement('.closeSlider')
+
+heroBackgroundImg.addEventListener('click',()=>{
+    sliderFull_screen.classList.remove('showSlider')
+})
+
+sliderClose.addEventListener('click',()=>{
+    sliderFull_screen.classList.add('showSlider')
+})
 
 // [].forEach.call(allThumbs, function(thumb) {
 //   // do whatever
@@ -61,6 +74,13 @@ const getBackgroundImage = (image) => {
     return imageName
 }
 
+const getImageFromThumbList = (image) =>{
+    // const getImageName = getBackgroundImage(image)
+    let getIndex = imageList.indexOf(image)
+    const getThumbnail = thumbnailList[getIndex]
+    return getThumbnail
+}
+
 const getImageSRC =  (element) => {
     const imageSrc = element.src
     const imageName = imageSrc.split('/')[4] 
@@ -77,6 +97,7 @@ allThumbs.forEach((thumb) => {
         let getIndex = thumbnailList.indexOf(getImage)
         const getBkgdImage = imageList[getIndex]
         heroBackgroundImg.style.backgroundImage = `url(./images/${getBkgdImage})`
+        sliderHero.style.backgroundImage = `url(./images/${getBkgdImage})`
         
         // Check if the currentThumb has the active className, if not add the active className to it.
         if(!thumb.classList.contains('active') && e.target ){
@@ -177,8 +198,26 @@ minusIcon.addEventListener('click',() =>{
 
 
 prevImg.addEventListener('click',()=>{
+    // console.log('clicked')
     const getImage = getNextOrPrevImage('<')
     heroBackgroundImg.style.backgroundImage = `url(./images/${getImage})`
+})
+
+
+sliderPrev.addEventListener('click',()=>{
+    const getImage = getNextOrPrevImage('<')
+    heroBackgroundImg.style.backgroundImage = `url(./images/${getImage})`
+    sliderHero.style.backgroundImage = `url(./images/${getImage})`
+
+    const currentThumb = getImageFromThumbList(getImage)
+    allThumbs.forEach((thumb) =>{
+                if(getImageSRC(thumb) != currentThumb) {
+                    thumb.classList.remove('active')
+                }else{
+                    thumb.classList.add('active')
+                }
+            })
+    
 })
 
 
@@ -187,6 +226,23 @@ nextImg.addEventListener('click',()=>{
     heroBackgroundImg.style.backgroundImage = `url(./images/${getImage})`
 })
 
+
+sliderNext.addEventListener('click',()=>{
+    const getImage = getNextOrPrevImage('>')
+    heroBackgroundImg.style.backgroundImage = `url(./images/${getImage})`
+    sliderHero.style.backgroundImage = `url(./images/${getImage})`
+
+
+    const currentThumb = getImageFromThumbList(getImage)
+    allThumbs.forEach((thumb) =>{
+                if(getImageSRC(thumb) != currentThumb) {
+                    thumb.classList.remove('active')
+                }else{
+                    thumb.classList.add('active')
+                }
+            })
+
+})
 
 menuBar.addEventListener('click',() =>{
     navLinks.classList.add('show-links')
